@@ -10,7 +10,7 @@ gem 'bxslider-rails'
 gem 'capistrano', '~> 2.15.5'
 gem 'capistrano-ext'
 gem 'shareable'
-gem 'devise'
+gem 'devise', '~> 3.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
