@@ -1,0 +1,24 @@
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :Name %><br>
+     <div class="form-group">
+        <%= f.text_field :commenter, placeholder: "commenter", class: "form-control input-lg", label: false,  :required =>true %>
+    </div>
+  </p>
+  <p>
+  <%= f.label :Email %><br>
+ <div class="form-group">
+        <%= f.email_field :email, placeholder: "example@gmail.com", class: "form-control input-lg", label: false,  :required =>true %>
+    </div>
+  </p>
+  <p>
+    <%= f.label :Comment %><br>
+
+   <div class="form-group">
+        <%= f.text_field :body, placeholder: "body", class: "form-control input-lg", label: false,  :required =>true %>
+    </div>
+  <p>
+    <%= f.submit %>
+    
+  </p>
+<% end %>

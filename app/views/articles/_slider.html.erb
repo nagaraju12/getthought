@@ -1,0 +1,25 @@
+<ul class="bxslider" i>
+<% @articles.each do |i| %>
+
+<% for image in i.images %>
+
+<li><%=link_to  image_tag(image.image.url, :height => 250, :width => 280 ), article_path(i.id) %>
+<%=  i.name %><br>
+
+
+     
+<% end %>
+<% end %>
+
+</ul>
+<script >
+$('.bxslider').bxSlider({
+   slideWidth:350,
+    minSlides: 2,
+    maxSlides: 4,
+    startSlide: 2,
+    pager: false,
+    auto: true,
+autoHover: true
+});
+</script>

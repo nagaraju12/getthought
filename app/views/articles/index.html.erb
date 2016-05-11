@@ -1,0 +1,43 @@
+<section id="contact_page" class="section-single" style="min-height:250px;">        
+  <div class="container">
+    <div class="fullwidth-article-wrapper col-lg-14"> 
+
+     <%= render :partial => 'slider' %>
+      <hr />
+                   <div style="position: relative;">
+        <% @articles.each do |article|%>
+                   <div style="float: left;">
+
+<%= link_to image_tag(article.images.present? ? article.images.first.image.url : "/assets/chamnthi.jpg", :height => 170, :width =>350), article_path(article.id) %>
+</div>
+<div style="position: relative; right: -30px; width: auto;">
+          <h1> <%= link_to article.name , article_path(article.id)%></h1>
+         <%#= @article.user.email %>
+         <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-calendar-o"></i>&nbsp;posted On
+         <%= article.created_at.strftime('%b %d,%Y') %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-comment"></i>&nbsp;<%= article.comments.count%>Comments</p>
+         
+          <h4><%= article.body.slice(0..85).html_safe %></h4>
+          <%= link_to "Read More" , article_path(article.id),:class =>"btn btn-primary", :spanclass =>"glyphicon glyphicon-chevron-right" %>
+          <%#if admin_signed_in?%>
+          <%#= link_to "edit", edit_article_path(article.id), :class => "btn btn-success"%> 
+          <%#= link_to 'delete', article_path(article), :method => "delete",
+              :data => { confirm: 'Are you sure?'}, :class => "btn btn-danger"%><br>
+          <%#= like_button(article.name) %>
+          <%#= tweet_button %>
+           <%#= pinit_button %>
+           <%#= google_plus_button %>
+
+              <hr />
+ 
+              </div>
+
+        <%end%>
+        <%= will_paginate @articles %>
+              </div>
+    </div>
+  </div>
+</section>
+
+
+
+

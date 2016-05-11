@@ -1,0 +1,61 @@
+
+  <h1><%=link_to @article.name,articles_path %></h2>
+<% @article.images.each do |image| %>
+
+<td><%= image_tag(image.image.url, :height => 250, :width =>450 ) %></td>
+
+<% end %>
+<p>
+<%#= social_share_button_tag(@article.name, :rel => "twipsy") %>
+ <%= like_button(@article.name) %>
+          <%= tweet_button(:url => "lvh.me:3000", :text => @article.body.slice(0..122).html_safe) %>
+           <%= pinit_button %>
+           <%= google_plus_button %>
+</p>
+
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.body %>
+</p>
+ 
+<h2>Comments</h2>
+<%= render @article.comments %>
+ 
+<h4>Add a comment:</h4>
+<%= render 'comments/form' %>
+ 
+<%= link_to 'Edit', edit_article_path(@article) %> 
+<%= link_to 'Back', new_article_path %>
+
+
+
+<style>
+.input-lg, .form-group-lg .form-control {
+    height: 40px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
+}
+.form-control {
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+
+</style>
