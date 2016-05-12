@@ -7,10 +7,10 @@
 <% end %>
 <p>
 <%#= social_share_button_tag(@article.name, :rel => "twipsy") %>
- <%= like_button(@article.name) %>
-          <%= tweet_button(:url => "lvh.me:3000", :text => @article.body.slice(0..122).html_safe) %>
+ <%= like_button(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe) %>
+          <%= tweet_button(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe) %>
            <%= pinit_button %>
-           <%= google_plus_button %>
+           <%= google_plus_button(:url => "lvh.me:3000", :text => @article.body.slice(0..122).html_safe) %>
 </p>
 
  
@@ -25,7 +25,7 @@
 <h4>Add a comment:</h4>
 <%= render 'comments/form' %>
  
-<%= link_to 'Edit', edit_article_path(@article) %> 
+<%#= link_to 'Edit', edit_article_path(@article) %> 
 <%= link_to 'Back', new_article_path %>
 
 

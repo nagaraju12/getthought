@@ -15,6 +15,6 @@
 //= require twitter/bootstrap
 //= require social-share-button
 //= require jquery_nested_form
-//= require turbolinks
+
 //= require bxslider
 //= require_tree .

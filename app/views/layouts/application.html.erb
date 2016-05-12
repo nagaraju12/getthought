@@ -54,7 +54,7 @@
           </ul>
            <ul class="nav navbar-nav navbar-left">
   
-           <% if current_user %>
+          <% if current_user.present? %>
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Article', articles_path %></li>
            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
@@ -72,7 +72,7 @@
   
 
     <%= text_field_tag :search, params[:search],placeholder: "Search Items", class:"btn btn-default" %>
-    <%= submit_tag "Search", :name => nil,class:"btn btn-warning" %>
+    <%= submit_tag "Search", :name => nil,class:"btn btn-success" %>
 <% end %></div>
         </div>
 
@@ -91,9 +91,19 @@
         
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2016</p>
-      </footer>
+    <div id= "footer" ><br><br>
+
+<div class="text-right">
+<h1><%= link_to ('<span class="glyphicon glyphicon-menu-up"> </span> ' ).html_safe, root_path %></h1>
+</div>
+<%= render :partial => '/layouts/footer' %>
+ 
+</footer>
+<style>
+   div.text-right{
+     float: right;
+}
+  </style>
 
     </div> <!-- /container -->
 
