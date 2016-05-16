@@ -1,19 +1,35 @@
 
   <h1><%=link_to @article.name,articles_path %></h2>
 <% @article.images.each do |image| %>
-
+<a href="#" id="pop">
 <td><%= image_tag(image.image.url, :height => 250, :width =>450 ) %></td>
-
+</a>
 <% end %>
 <p>
 <%#= social_share_button_tag(@article.name, :rel => "twipsy") %>
  <%= like_button(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe) %>
-          <%= tweet_button(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe) %>
-           <%= pinit_button %>
-           <%= google_plus_button(:url => "lvh.me:3000", :text => @article.body.slice(0..122).html_safe) %>
+          <%#= tweet_button(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe) %>
+           <%#= pinit_button %>
+           <%#= google_plus_button(:url => "lvh.me:3000", :text => @article.body.slice(0..122).html_safe) %>
+           <div class="fb-share-button" data-href="#{request.url}"data-layout="button"(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe)></div>
+
+
+
+
+
+           
 </p>
 
- 
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <p>
   <strong>Text:</strong>
   <%= @article.body %>
@@ -25,10 +41,14 @@
 <h4>Add a comment:</h4>
 <%= render 'comments/form' %>
  
-<%#= link_to 'Edit', edit_article_path(@article) %> 
+<%= link_to 'Edit', edit_article_path(@article) %> 
 <%= link_to 'Back', new_article_path %>
 
-
+<script>
+$("#pop").on("click", function() {
+   $(this).modal();
+});
+</script>
 
 <style>
 .input-lg, .form-group-lg .form-control {

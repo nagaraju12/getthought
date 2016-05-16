@@ -54,15 +54,19 @@
           </ul>
            <ul class="nav navbar-nav navbar-left">
   
-          <% if current_user.present? %>
+            <% if current_user.present? %>
+
+           <li><%= link_to "Facebook",user_omniauth_authorize_path(:facebook) %></li>
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Article', articles_path %></li>
-           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
              <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Article', articles_path %></li>
+              <li><%= link_to 'Article', articles_path %></li>
               <li><%= link_to 'Login', new_user_session_path %></li>
-             <li><%= link_to "Signup", new_user_registration_path %></li>
+            <li><%= link_to "Signup",new_user_registration_path %></li>
+
+           <li><%= link_to "Facebook",  user_omniauth_authorize_path(:facebook) %></li>
                <li><%#= render "layouts/nav" %></li><br>
             <% end %>
   
@@ -115,6 +119,13 @@
 .col-lg-12 {
     width: 96%;
 }
+body {
+    color: #333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -133,6 +144,7 @@
     min-height: 52px;
     position: relative;
 }
+
 *:before, *:after {
     box-sizing: border-box;
 }
@@ -145,6 +157,20 @@
     background-color: #00CCFF;
     border-color:white ;
 }
+
+*:before, *:after {
+    box-sizing: border-box;
+}
+*:before, *:after {
+    box-sizing: border-box;
+}
+*:before, *:after {
+    box-sizing: border-box;
+}
+*:before, *:after {
+    box-sizing: border-box;
+}
+
 .navbar-static-top {
     border-width: 6px 65px 0;
     z-index: 1000;
