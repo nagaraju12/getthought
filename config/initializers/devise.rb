@@ -41,8 +41,6 @@ Devise.setup do |config|
   # if you set :request_keys to [:subdomain], :subdomain will be used on authentication.
   # The same considerations mentioned for authentication_keys also apply to request_keys.
   # config.request_keys = []
-require "omniauth-facebook"
-config.omniauth :facebook, "474072752802653", "9489e37f48a97575a9e61abd2d6894a9"
 
 
   # Configure which authentication keys should be case-insensitive.
