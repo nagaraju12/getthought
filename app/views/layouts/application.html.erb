@@ -55,10 +55,6 @@
            <ul class="nav navbar-nav navbar-left">
   
             <% if current_user.present? %>
-
-           <li><%= link_to "Facebook",user_omniauth_authorize_path(:facebook) %></li>
-            <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Article', articles_path %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
              <li><%= link_to 'Home', root_path %></li>

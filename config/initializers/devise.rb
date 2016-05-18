@@ -19,6 +19,9 @@ Devise.setup do |config|
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
+  #config.omniauth :facebook, '780404748727302', '1ea899f5718c534ae149b1b65ccaca3c',  scope: 'email', info_fields: 'email'
+  
+
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and

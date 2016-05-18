@@ -8,7 +8,7 @@
         <% @articles.each do |article|%>
                    <div style="float: left;">
 
-<%= link_to image_tag(article.images.present? ? article.images.first.image.url : "/assets/chamnthi.jpg", :height => 170, :width =>350), article_path(article.id) %>
+<%= link_to (image_tag(article.images.present? ? article.images.first.image.url : "/assets/chamnthi.jpg", :height => 170, :width =>350)), article_path(article.id)  %>
 </div>
 <div style="position: relative; right: -30px; width: auto;">
           <h1> <%= link_to article.name , article_path(article.id)%></h1>

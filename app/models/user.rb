@@ -16,6 +16,7 @@ def self.new_with_session(params, session)
 def self.find_from_hash(hash)
 find_by_provider_and_uid(hash['provider'], hash['uid'])
 end
+
 def self.find_or_create(auth_hash)
 	p "DSFDSFDSFDSFDSFDSF"
 	p auth_hash
@@ -23,6 +24,7 @@ def self.find_or_create(auth_hash)
 	p "DDFDGFDGFDGFDGFDGFDG"
 unless user = User.find_by_email(auth_hash["info"]["email"])
 email = "#{auth_hash['uid']}@gmail.com"
+
 uid = auth_hash["uid"]
 provider = auth_hash["provider"]
 user = User.new :email => email, :uid => uid, :provider => provider
@@ -30,6 +32,8 @@ user = User.new :email => email, :uid => uid, :provider => provider
  end
  return user
 end
+
+
 
 protected
   def confirmation_required?

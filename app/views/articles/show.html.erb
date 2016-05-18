@@ -1,5 +1,4 @@
-
-  <h1><%=link_to @article.name,articles_path %></h2>
+<h1><%=link_to @article.name,articles_path %></h2>
 <% @article.images.each do |image| %>
 <a href="#" id="pop">
 <td><%= image_tag(image.image.url, :height => 250, :width =>450 ) %></td>
@@ -11,7 +10,9 @@
           <%#= tweet_button(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe) %>
            <%#= pinit_button %>
            <%#= google_plus_button(:url => "lvh.me:3000", :text => @article.body.slice(0..122).html_safe) %>
-           <div class="fb-share-button" data-href="#{request.url}"data-layout="button"(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe)></div>
+           <div class="fb-share-button" data-href="#{request.url}"data-layout="button_count"(:url => "lvh.me:3000",:name => @article.name, :text => @article.body.slice(0..122).html_safe)></div>
+
+           
            <p>
   <strong>Text:</strong>
   <%= @article.body %>
@@ -26,11 +27,9 @@
 <%= link_to 'Edit', edit_article_path(@article) %> 
 <%= link_to 'Back', new_article_path %>
 
-<script>
-$("#pop").on("click", function() {
-   $(this).modal();
-});
-</script>
+
+
+  <!-- Your share button code -->
 
 <style>
 .input-lg, .form-group-lg .form-control {

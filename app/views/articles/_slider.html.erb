@@ -4,11 +4,11 @@
 <% for image in i.images %>
 
 <li><%=link_to  image_tag(image.image.url, :height => 250, :width => 280 ), article_path(i.id) %>
-<%=  i.name %><br>
+<%=  link_to i.name,article_path(i.id)  %><br>
 
 
      
-<% end %>
+<% end %></li>
 <% end %>
 
 </ul>
