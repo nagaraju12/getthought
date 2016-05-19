@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-#before_filter :is_login?
+before_filter :authenticate_user!, except: [:index]
 	def index
 	
 @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 20).order("created_at DESC ")
