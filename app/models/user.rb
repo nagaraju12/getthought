@@ -24,7 +24,6 @@ def self.find_or_create(auth_hash)
 	p "DDFDGFDGFDGFDGFDGFDG"
 unless user = User.find_by_email(auth_hash["info"]["email"])
 email = "#{auth_hash['uid']}@gmail.com"
-
 uid = auth_hash["uid"]
 provider = auth_hash["provider"]
 user = User.new :email => email, :uid => uid, :provider => provider
