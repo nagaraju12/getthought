@@ -23,7 +23,7 @@ def self.find_or_create(auth_hash)
 	p auth_hash['info']['email']
 	p "DDFDGFDGFDGFDGFDGFDG"
 unless user = User.find_by_email(auth_hash["info"]["email"])
-email = "#{auth_hash['uid']}@gmail.com"
+ email = "#{auth_hash['uid']}@gmail.com"
 uid = auth_hash["uid"]
 provider = auth_hash["provider"]
 user = User.new :email => email, :uid => uid, :provider => provider
@@ -35,8 +35,11 @@ end
 
 
 protected
+
   def confirmation_required?
     self.provider.nil?
   end
+
+
 end
 
