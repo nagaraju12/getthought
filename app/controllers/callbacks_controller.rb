@@ -19,5 +19,7 @@ flash[:error] = "Login failed."
 redirect_to root_path
 end
 end 
-
+def failure
+	redirect_to "/"
+end
 end

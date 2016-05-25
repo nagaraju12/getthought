@@ -5,6 +5,5 @@ class AddDetailsToUsers < ActiveRecord::Migration
     add_column :users, :secret, :string
    add_column :users, :details, :text
 
-
   end
 end

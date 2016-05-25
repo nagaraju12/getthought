@@ -32,14 +32,10 @@ user = User.new :email => email, :uid => uid, :provider => provider
  return user
 end
 
-
-
 protected
 
-  def confirmation_required?
+def confirmation_required?
     self.provider.nil?
-  end
-
-
+end
 end
 
